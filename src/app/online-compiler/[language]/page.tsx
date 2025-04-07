@@ -1,10 +1,10 @@
 "use client";
-import Navbar from "@/layouts/components/Navbar";
 import { useState, useEffect, useCallback, JSX } from "react";
 import LanguageSidebar from "./components/LanguageSidebar";
-import EditorHeader from "./components/EditorHeader";
 import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
+import Header from "./components/Header";
+import { Play } from "lucide-react";
 
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
   ssr: false,
@@ -272,154 +272,167 @@ const CodeEditor = (): JSX.Element => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <Navbar />
+      <Header />
       {/* Editor Container */}
       <div className="flex flex-col md:flex-row h-[calc(100vh-56px)]">
         <LanguageSidebar />
-        {/* Editor Section */}
-        <div className="flex-1 flex flex-col">
-          <EditorHeader />
-          <div className="flex flex-col md:flex-row flex-1">
-            {/* Code Editor */}
-            <div className="w-full md:w-1/2 bg-gray-900 overflow-hidden flex flex-col min-h-0">
-              {/* File tabs */}
-              <div className="flex overflow-x-auto border-b border-gray-600 px-2">
-                {files.map((file, index) => (
-                  <div
-                    key={file.name}
-                    className={`flex items-center px-3 py-2 ${
-                      index === activeFileIndex
-                        ? "border-b-2 border-blue-500 text-blue-400"
-                        : "text-gray-400 hover:text-gray-200"
-                    } text-sm cursor-pointer`}
-                    onClick={() => setActiveFileIndex(index)}>
-                    <span>{file.name}</span>
-                    {files.length > 1 && (
-                      <button
-                        className="ml-2 text-gray-500 hover:text-gray-300"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          removeFile(index);
-                        }}>
-                        <svg
-                          className="w-3 h-3"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-                        </svg>
-                      </button>
-                    )}
-                  </div>
-                ))}
-                <button
-                  className="px-3 py-2 text-gray-500 hover:text-gray-300 text-sm flex items-center"
-                  onClick={addNewFile}>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                  </svg>
-                  <span className="ml-1">New File</span>
-                </button>
-
-                <div className="ml-auto pl-4 flex items-center">
-                  <button className="px-4 py-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-md shadow-lg transform transition-transform flex items-center"
-                    onClick={runJavaScript}
-                    disabled={isRunning}>
+        {/* Main Editor Area */}
+        <div className="flex flex-1 overflow-hidden">
+          {/* Main Content Area */}
+          <div className="flex-1 flex flex-col">
+            {/* Code Area */}
+            <div className="flex-1 flex">
+              {/* Editor */}
+              <div className="w-1/2 flex flex-col">
+                {/* File tabs */}
+                <div className="flex overflow-x-auto border-b border-gray-700 bg-gray-800">
+                  {files.map((file, index) => (
+                    <div
+                      key={file.name}
+                      className={`flex items-center px-3 py-2 ${
+                        index === activeFileIndex
+                          ? "border-b-2 border-blue-500 text-blue-400 bg-gray-900"
+                          : "text-gray-400 hover:text-gray-200"
+                      } text-sm cursor-pointer`}
+                      onClick={() => setActiveFileIndex(index)}>
+                      <span>{file.name}</span>
+                      {files.length > 1 && (
+                        <button
+                          className="ml-2 text-gray-500 hover:text-gray-300"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeFile(index);
+                          }}>
+                          <svg
+                            className="w-3 h-3"
+                            fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                  <button
+                    className="px-3 py-2 text-gray-500 hover:text-gray-300 text-sm flex items-center"
+                    onClick={addNewFile}>
                     <svg
-                      className="w-4 h-4 mr-1"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
+                      viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Run Code
+                    <span className="ml-1">New File</span>
                   </button>
+
+                  <button onClick={runJavaScript} className="hidden md:flex items-center text-xs px-3 py-1.5 rounded bg-indigo-600 hover:bg-indigo-700 transition-colors">
+            <Play size={14} className="mr-1" />
+            Run
+          </button>
+                </div>
+                {/* Line numbers and editor */}
+                <div className="flex-1 relative">
+                  {files.length > 0 && activeFileIndex < files.length && (
+                    <MonacoEditor
+                      height="100%"
+                      width="100%"
+                      theme={editorTheme}
+                      language={files[activeFileIndex].language}
+                      value={fileContents[files[activeFileIndex].name] || ""}
+                      onChange={handleEditorChange}
+                      options={{
+                        minimap: { enabled: false },
+                        fontSize: 18,
+                        lineNumbers: "on",
+                        automaticLayout: true,
+                        scrollBeyondLastLine: false,
+                        renderLineHighlight: "all",
+                        scrollbar: {
+                          verticalScrollbarSize: 10,
+                          horizontalScrollbarSize: 10,
+                        },
+                      }}
+                    />
+                  )}
                 </div>
               </div>
-              <div className="flex-1 min-h-0">
-                {files.length > 0 && activeFileIndex < files.length && (
-                  <MonacoEditor
-                    height="100%"
-                    width="100%"
-                    theme={editorTheme}
-                    language={files[activeFileIndex].language}
-                    value={fileContents[files[activeFileIndex].name] || ""}
-                    onChange={handleEditorChange}
-                    options={{
-                      minimap: { enabled: false },
-                      fontSize: 18,
-                      automaticLayout: true,
-                    }}
-                  />
-                )}
+
+              {/* Output/Input Panel */}
+              <div className="w-1/2 border-l border-gray-700 flex flex-col">
+                <div className="flex border-b border-gray-700 bg-gray-800">
+                  <button
+                    className={`px-4 py-2 text-sm ${
+                      activeTab === "input"
+                        ? "border-b-2 border-blue-500 text-blue-400"
+                        : "text-gray-400 hover:text-gray-200"
+                    }`}
+                    onClick={() => setActiveTab("input")}>
+                    Input
+                  </button>
+                  <button
+                    className={`px-4 py-2 text-sm ${
+                      activeTab === "output"
+                        ? "border-b-2 border-blue-500 text-blue-400"
+                        : "text-gray-400 hover:text-gray-200"
+                    }`}
+                    onClick={() => setActiveTab("output")}>
+                    {activeLanguage === "html" ? "Preview" : "Output"}
+                  </button>
+                  <button className="px-4 py-2 text-sm text-gray-400 hover:text-gray-200">
+                    Generated files
+                  </button>
+                </div>
+                <div className="flex-1  overflow-auto bg-gray-900">
+                  {activeTab === "input" ? (
+                    <div className="h-full flex flex-col">
+                      <div className="text-sm px-2 py-1 bg-gray-800 border-b border-gray-700">
+                        Input arguments
+                      </div>
+                      <textarea
+                        className="flex-1 w-full bg-gray-800 border border-gray-700  p-2 text-sm focus:outline-none"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder="Enter input here..."
+                      />
+                    </div>
+                  ) : activeLanguage === "html" ? (
+                    <div className="w-full h-full bg-white rounded border border-gray-700">
+                      <iframe
+                        title="HTML Preview"
+                        srcDoc={output}
+                        className="w-full h-full border-none"
+                        sandbox="allow-scripts"
+                      />
+                    </div>
+                  ) : (
+                    <div className="font-mono h-full text-sm bg-black p-3 rounded overflow-y-auto whitespace-pre-wrap">
+                      <div className="text-white">{output}</div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-            {/* Output Panel */}
-            <div className="w-full md:w-1/2 bg-gray-900 border-l border-gray-700">
-              <div className="flex border-b border-gray-700">
-                <button
-                  className={`px-4 py-2 text-sm transition-colors ${
-                    activeTab === "input"
-                      ? "border-b-2 border-blue-500 text-blue-400"
-                      : "text-gray-400 hover:text-gray-200"
-                  }`}
-                  onClick={() => setActiveTab("input")}>
-                  Input
-                </button>
-                <button
-                  className={`px-4 py-2 text-sm transition-colors ${
-                    activeTab === "output"
-                      ? "border-b-2 border-blue-500 text-blue-400"
-                      : "text-gray-400 hover:text-gray-200"
-                  }`}
-                  onClick={() => setActiveTab("output")}>
-                  {activeLanguage === "html" ? "Preview" : "Output"}
-                </button>
-              </div>
-              <div className="p-4 h-[calc(100%-40px)] overflow-auto">
-                {activeTab === "input" ? (
-                  <textarea
-                    className="w-full h-full bg-gray-800 border border-gray-700 rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Enter input here (used by JavaScript's readline() function)"
+
+            {/* Status Bar */}
+            <div className="bg-gray-800 border-t border-gray-700 flex items-center justify-between px-4 py-1 text-xs text-gray-400">
+              <div className="flex items-center">
+                <span className="mr-4">GCC 13.2.1</span>
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="interactiveMode"
+                    checked
+                    className="mr-1"
                   />
-                ) : activeLanguage === "html" ? (
-                  <div className="w-full h-full bg-white text-black rounded">
-                    <iframe
-                      title="HTML Preview"
-                      srcDoc={output}
-                      className="w-full h-full border-none"
-                      sandbox="allow-scripts"
-                    />
-                  </div>
-                ) : (
-                  <div className="font-mono h-full bg-gray-800 p-3 rounded overflow-y-auto whitespace-pre-wrap">
-                    {output}
-                  </div>
-                )}
+                  <label htmlFor="interactiveMode">Interactive Mode</label>
+                </div>
               </div>
+              <div>Language version: {activeLanguage.toUpperCase()}</div>
             </div>
           </div>
         </div>

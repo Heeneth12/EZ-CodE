@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Code,
-  Users,
-  Video,
-  Info,
-  CheckCircle,
-  Clock,
-  ChevronDown,
-} from "lucide-react";
+import { Code } from "lucide-react";
 import HeroSecrionAnima from "./animations/HeroSecrionAnima";
+import StaticCode from "./StaticCode";
+
 
 export default function HeroSection() {
   return (
@@ -43,12 +37,8 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="mt-12 lg:mt-0 relative">
-              <div className="bg-white rounded-xl shadow-xl overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                <img
-                  src="/api/placeholder/600/400"
-                  alt="EZ-CodE Platform Preview"
-                  className="w-full object-cover"
-                />
+              <div className="bg-white rounded-xl border border-blue-700/50  shadow-xl overflow-hidden transform rotate-0 hover:rotate-4 transition-transform duration-300">
+                <StaticCode />
               </div>
               <div className="absolute -bottom-12 -left-12 bg-blue-900 rounded-lg shadow-lg p-4 transform -rotate-3 hidden md:block">
                 <div className="flex items-center">
@@ -74,7 +64,7 @@ export default function HeroSection() {
           </svg>
         </div>
       </div>
-      <HeroSecrionAnima/>
+      <HeroSecrionAnima />
     </>
   );
 }

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Run code in multiple languages with real-time output using EZ-CodE.",
 };
 
-export default function OnlineCompilerLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

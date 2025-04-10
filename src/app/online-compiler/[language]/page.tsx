@@ -30,6 +30,9 @@ const CodeEditor = (): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>("");
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [consoleLogs, setConsoleLogs] = useState<string[]>([]);
+  // Add this to your existing state declarations at the top of the component
+  const [editorWidthPercentage, setEditorWidthPercentage] =
+    useState<number>(50); // Default 50/50 split
 
   const language = (params as { language?: string })?.language;
   const activeLanguage: string = language || "c";
@@ -274,66 +277,71 @@ const CodeEditor = (): JSX.Element => {
     <div className="min-h-screen bg-gray-900 text-white">
       <Header />
       {/* Editor Container */}
-      <div className="flex flex-col md:flex-row h-[calc(100vh-56px)]">
+      <div className="flex flex-col md:flex-row h-[calc(97vh-56px)]">
         <LanguageSidebar />
-        {/* Main Editor Area */}
-        <div className="flex flex-1 overflow-hidden">
-          {/* Main Content Area */}
-          <div className="flex-1 flex flex-col">
-            {/* Code Area */}
-            <div className="flex-1 flex">
-              {/* Editor */}
-              <div className="w-1/2 flex flex-col">
-                {/* File tabs */}
-                <div className="flex overflow-x-auto border-b border-gray-700 bg-gray-800">
-                  {files.map((file, index) => (
-                    <div
-                      key={file.name}
-                      className={`flex items-center px-3 py-2 ${
-                        index === activeFileIndex
-                          ? "border-b-2 border-blue-500 text-blue-400 bg-gray-900"
-                          : "text-gray-400 hover:text-gray-200"
-                      } text-sm cursor-pointer`}
-                      onClick={() => setActiveFileIndex(index)}>
-                      <span>{file.name}</span>
-                      {files.length > 1 && (
-                        <button
-                          className="ml-2 text-gray-500 hover:text-gray-300"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            removeFile(index);
-                          }}>
-                          <svg
-                            className="w-3 h-3"
-                            fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-                          </svg>
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                  <button
-                    className="px-3 py-2 text-gray-500 hover:text-gray-300 text-sm flex items-center"
-                    onClick={addNewFile}>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
-                    <span className="ml-1">New File</span>
-                  </button>
 
-                  <button onClick={runJavaScript} className="hidden md:flex items-center text-xs px-3 py-1.5 rounded bg-indigo-600 hover:bg-indigo-700 transition-colors">
-            <Play size={14} className="mr-1" />
-            Run
-          </button>
+        <div className="flex flex-1 overflow-hidden">
+          <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex">
+              {/* Editor Panel - now using dynamic width */}
+              <div
+                className="flex flex-col"
+                style={{ width: `${editorWidthPercentage}%` }}>
+                {/* File tabs */}
+                <div className="flex justify-between overflow-x-auto border-b border-gray-700 bg-gray-800">
+                  <div className="flex items-center overflow-x-auto">
+                    {files.map((file, index) => (
+                      <div
+                        key={file.name}
+                        className={`flex items-center px-3 py-2 ${
+                          index === activeFileIndex
+                            ? "border-b-2 border-blue-500 text-blue-400 bg-gray-900"
+                            : "text-gray-400 hover:text-gray-200"
+                        } text-sm cursor-pointer`}
+                        onClick={() => setActiveFileIndex(index)}>
+                        <span>{file.name}</span>
+                        {files.length > 1 && (
+                          <button
+                            className="ml-2 text-gray-500 hover:text-gray-300"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              removeFile(index);
+                            }}>
+                            <svg
+                              className="w-3 h-3"
+                              fill="currentColor"
+                              viewBox="0 0 24 24">
+                              <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                            </svg>
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                    <button
+                      className="px-3 py-2 text-gray-500 hover:text-gray-300 text-sm flex items-center"
+                      onClick={addNewFile}>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                      </svg>
+                      <span className="ml-1">New File</span>
+                    </button>
+                  </div>
+                  <div className="flex items-center">
+                    <button
+                      onClick={runJavaScript}
+                      className="hidden font-semibold md:flex items-center text-xs px-4 py-2.5 bg-blue-600 hover:bg-blue-700 transition-colors">
+                      <Play size={14} className="mr-1" />
+                      Run
+                    </button>
+                  </div>
                 </div>
                 {/* Line numbers and editor */}
                 <div className="flex-1 relative">
@@ -347,7 +355,7 @@ const CodeEditor = (): JSX.Element => {
                       onChange={handleEditorChange}
                       options={{
                         minimap: { enabled: false },
-                        fontSize: 18,
+                        fontSize: 20,
                         lineNumbers: "on",
                         automaticLayout: true,
                         scrollBeyondLastLine: false,
@@ -362,8 +370,45 @@ const CodeEditor = (): JSX.Element => {
                 </div>
               </div>
 
-              {/* Output/Input Panel */}
-              <div className="w-1/2 border-l border-gray-700 flex flex-col">
+              {/* Resizer Control */}
+              <div 
+                className="cursor-ew-resize w-1 bg-gray-700 hover:bg-blue-500 transition-colors flex items-center justify-center"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  const startX = e.clientX;
+                  const startWidth = editorWidthPercentage;
+                  
+                  // Capture the container width at the start of the drag
+                  const containerWidth = e.currentTarget.parentElement?.offsetWidth || 1000;
+                  
+                  const handleMouseMove = (moveEvent: MouseEvent) => {
+                    const dx = moveEvent.clientX - startX;
+                    const newPercentage = startWidth + (dx / containerWidth * 100);
+                    
+                    // Keep within reasonable bounds (20% - 80%)
+                    const boundedPercentage = Math.max(20, Math.min(80, newPercentage));
+                    setEditorWidthPercentage(boundedPercentage);
+                  };
+                  
+                  const handleMouseUp = () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    document.removeEventListener('mouseup', handleMouseUp);
+                  };
+                  
+                  document.addEventListener('mousemove', handleMouseMove);
+                  document.addEventListener('mouseup', handleMouseUp);
+                }}
+              >
+                <div className="flex flex-col items-center py-4 space-y-1">
+                  <div className="bg-gray-400 w-1 h-6 rounded-full"></div>
+                  <div className="bg-gray-400 w-1 h-6 rounded-full"></div>
+                </div>
+              </div>
+
+              {/* Output/Input Panel - now using dynamic width */}
+              <div
+                className="border-l border-gray-700 flex flex-col"
+                style={{ width: `${100 - editorWidthPercentage}%` }}>
                 <div className="flex border-b border-gray-700 bg-gray-800">
                   <button
                     className={`px-4 py-2 text-sm ${
@@ -386,15 +431,19 @@ const CodeEditor = (): JSX.Element => {
                   <button className="px-4 py-2 text-sm text-gray-400 hover:text-gray-200">
                     Generated files
                   </button>
+                  <div className="ml-auto flex items-center px-2 text-xs text-gray-400">
+                    {Math.round(editorWidthPercentage)}% |{" "}
+                    {Math.round(100 - editorWidthPercentage)}%
+                  </div>
                 </div>
-                <div className="flex-1  overflow-auto bg-gray-900">
+                <div className="flex-1 overflow-auto bg-gray-900">
                   {activeTab === "input" ? (
                     <div className="h-full flex flex-col">
                       <div className="text-sm px-2 py-1 bg-gray-800 border-b border-gray-700">
                         Input arguments
                       </div>
                       <textarea
-                        className="flex-1 w-full bg-gray-800 border border-gray-700  p-2 text-sm focus:outline-none"
+                        className="flex-1 w-full bg-gray-800 border border-gray-700 p-2 text-sm focus:outline-none"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         placeholder="Enter input here..."
@@ -410,29 +459,12 @@ const CodeEditor = (): JSX.Element => {
                       />
                     </div>
                   ) : (
-                    <div className="font-mono h-full text-sm bg-black p-3 rounded overflow-y-auto whitespace-pre-wrap">
+                    <div className="font-mono h-full text-sm bg-gray-600 p-3  overflow-y-auto whitespace-pre-wrap">
                       <div className="text-white">{output}</div>
                     </div>
                   )}
                 </div>
               </div>
-            </div>
-
-            {/* Status Bar */}
-            <div className="bg-gray-800 border-t border-gray-700 flex items-center justify-between px-4 py-1 text-xs text-gray-400">
-              <div className="flex items-center">
-                <span className="mr-4">GCC 13.2.1</span>
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="interactiveMode"
-                    checked
-                    className="mr-1"
-                  />
-                  <label htmlFor="interactiveMode">Interactive Mode</label>
-                </div>
-              </div>
-              <div>Language version: {activeLanguage.toUpperCase()}</div>
             </div>
           </div>
         </div>

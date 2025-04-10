@@ -9,7 +9,7 @@ export default function TechInterviewPage() {
   const [isRoomCreated, setIsRoomCreated] = useState(false);
 
   const generateRoomCode = () => {
-    const newCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const newCode ="adsdsadsad"
     setRoomCode(newCode);
     setIsRoomCreated(true);
   };

@@ -9,7 +9,7 @@ export default function TechInterviewPage() {
   const [isRoomCreated, setIsRoomCreated] = useState(false);
 
   const generateRoomCode = () => {
-    const newCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const newCode ="adsdsadsad"
     setRoomCode(newCode);
     setIsRoomCreated(true);
   };
@@ -34,13 +34,14 @@ export default function TechInterviewPage() {
 
         {/* Hero Section */}
         <main>
+          <div className='bg-gradient-to-r from-blue-600 to-indigo-700 text-white'>
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
               <div>
-                <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">
+                <h2 className="text-4xl font-extrabold  sm:text-5xl sm:tracking-tight lg:text-6xl">
                   Create Your Technical Interview Room
                 </h2>
-                <p className="mt-4 text-xl text-gray-500">
+                <p className="mt-6 text-xl max-w-3xl">
                   Set up a collaborative environment for conducting technical interviews with real-time code editing, execution, and video conferencing.
                 </p>
                 
@@ -88,6 +89,8 @@ export default function TechInterviewPage() {
               </div>
             </div>
           </div>
+          </div>
+          
 
           {/* Features Section */}
           <div id="features" className="bg-white py-16">

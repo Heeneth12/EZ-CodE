@@ -24,15 +24,7 @@ export const metadata: Metadata = {
     title: "EZ-CodE | Online Compiler & Interview Platform",
     description:
       "All-in-one platform for coding, collaboration, and interviews.",
-    url: "https://ezcode.in",
     siteName: "EZ-CodE",
-    images: [
-      {
-        url: "https://ezcode.in/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
     type: "website",
   },
   twitter: {
@@ -40,9 +32,7 @@ export const metadata: Metadata = {
     title: "EZ-CodE | Code, Collaborate, Interview",
     description:
       "30+ languages, pair programming, interview rooms – all in one place.",
-    images: ["https://ezcode.in/images/twitter-card.jpg"],
   },
-  metadataBase: new URL("https://ezcode.in"),
 };
 
 export default function RootLayout({

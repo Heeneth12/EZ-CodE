@@ -34,7 +34,7 @@ const TechInterviewPage = () => {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e:any) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -439,7 +439,7 @@ export default ResponsiveNavMenu;
                         onChange={(e) => setChatMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="Type a message..."
-                        rows="2"
+                        rows={2}
                         className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none pr-10"
                       />
                       <button 

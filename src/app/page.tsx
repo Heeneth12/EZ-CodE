@@ -3,7 +3,7 @@ import Footer from "@/layouts/components/Footer";
 import HeroSection from "@/layouts/components/HeroSection";
 import FeatureSections from "@/layouts/components/FeatureSections";
 import { Users, Code } from "lucide-react";
-import FeaturesSectionAnima from "@/layouts/components/animations/FeaturesSectionAnima";
+import TechnicalInterview from "@/layouts/components/animations/TechnicalInterview";
 
 export default function Home() {
   return (

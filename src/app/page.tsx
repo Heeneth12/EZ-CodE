@@ -23,7 +23,7 @@ export default function Home() {
         </article>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-12 sm:py-16">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-10 sm:py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="text-center lg:text-left">
@@ -47,12 +47,6 @@ export default function Home() {
                   className="inline-flex items-center justify-center px-5 py-3 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 transition-colors shadow">
                   <Code size={18} className="mr-2" />
                   Create Free Room
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center px-5 py-3 text-base font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700 transition-colors shadow">
-                  <Users size={18} className="mr-2" />
-                  Team Solutions
                 </a>
               </div>
             </div>

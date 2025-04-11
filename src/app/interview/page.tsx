@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Calendar, Code, Users, Video, Copy, Info } from 'lucide-react';
-import Navbar from '@/layouts/components/Navbar';
+import Navbar from '@/layouts/components/Header';
 
 export default function TechInterviewPage() {
   const [roomCode, setRoomCode] = useState('');

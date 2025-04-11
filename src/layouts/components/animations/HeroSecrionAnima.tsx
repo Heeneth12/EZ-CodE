@@ -77,7 +77,7 @@ export default function HeroSecrionAnima() {
   const remainingCode = sampleCode.substring(typingProgress);
   return (
     <div
-      id="create-room"
+      id="hero-secrion-anima"
       className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">

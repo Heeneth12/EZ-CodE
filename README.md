@@ -2,7 +2,8 @@
 
 EZ-CodE is a powerful and intuitive platform that brings together an **online compiler**, **real-time collaborative coding**, and **technical interview environments** — all in one place. Designed for developers, educators, interviewers, and teams who want to **code, collaborate, and evaluate** faster and better.
 
-![EZ-CodE Preview](![image](https://github.com/user-attachments/assets/47affddf-c56b-42c9-88ae-2ef1e163b4fe))
+![image](https://github.com/user-attachments/assets/9d368822-9474-4a8d-8d00-d0216819bfc8)
+
 
 ---
 

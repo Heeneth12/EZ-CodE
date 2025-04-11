@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 EZ-CodE - The All-in-One Coding Platform
 
-## Getting Started
+EZ-CodE is a powerful and intuitive platform that brings together an **online compiler**, **real-time collaborative coding**, and **technical interview environments** — all in one place. Designed for developers, educators, interviewers, and teams who want to **code, collaborate, and evaluate** faster and better.
 
-First, run the development server:
+![EZ-CodE Preview](![image](https://github.com/user-attachments/assets/47affddf-c56b-42c9-88ae-2ef1e163b4fe))
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Goal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The main goal of EZ-CodE is to **streamline the coding workflow** by providing:
+- A seamless environment to **write, compile, and run** code online.
+- **Real-time collaboration** with other developers (pair programming, team sessions).
+- An interactive, feature-rich space for **technical interviews and assessments**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+### 🔧 Online Compiler
+- Supports **30+ programming languages** (JavaScript, Python, C++, Java, etc.)
+- Syntax highlighting, input/output handling
+- Real-time results and error logs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🤝 Collaborative Coding
+- Live collaborative editor with multiple participants
+- Share session via URL
+- Highlight user cursors and changes in real time
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎯 Technical Interview Tools
+- One-on-one and team-based interview rooms
+- Predefined question sets and whiteboarding
+- Live code execution during interviews
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧱 Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**: Next.js 13+, React, TailwindCSS, ShadCN/UI, Lucide Icons
+- **Backend (Planned)**: Spring Boot, WebSocket for collaboration
+- **Compiler Service**: Integrated with online code execution APIs
+- **Auth**: Phone OTP (via Firebase/Auth or custom backend)
+- **Database (Planned)**: PostgreSQL / MongoDB
+

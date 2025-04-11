@@ -1,14 +1,13 @@
-import Navbar from "@/layouts/components/Navbar";
 import Footer from "@/layouts/components/Footer";
 import HeroSection from "@/layouts/components/HeroSection";
 import FeatureSections from "@/layouts/components/FeatureSections";
 import { Users, Code } from "lucide-react";
-import TechnicalInterview from "@/layouts/components/animations/TechnicalInterview";
+import Header from "@/layouts/components/Header";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
       <main className="flex-grow bg-gradient-to-b from-white to-blue-50">
         <article>
           <section id="hero">
@@ -20,7 +19,6 @@ export default function Home() {
               Platform Features
             </h2>
             <FeatureSections />
-            {/* <FeaturesSectionAnima /> */}
           </section>
         </article>
 

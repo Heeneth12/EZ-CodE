@@ -28,7 +28,7 @@ const helpResources = [
   { name: 'Get Help', href: '/support', icon: QuestionMarkCircleIcon },
 ];
 
-export default function Navbar() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

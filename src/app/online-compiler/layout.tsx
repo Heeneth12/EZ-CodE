@@ -1,32 +1,70 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-// Optional SEO Metadata (can override in individual pages too)
 export const metadata: Metadata = {
-  title: "Online Compiler - EZ-CodE",
-  description: "Run code in multiple languages with real-time output using EZ-CodE.",
+  title: "EZ-CodE | Online Compiler, Collaboration, and Interviews",
+  description: "Write and run code, collaborate, and interview with EZ-CodE.",
+  keywords: [
+    "online compiler",
+    "collaborative coding",
+    "coding platform",
+    "code editor",
+    "HTML editor",
+    "JavaScript compiler",
+    "Python online compiler",
+    "C++ online compiler",
+  ],
+  openGraph: {
+    title: "EZ-CodE | Online Compiler & Interview Platform",
+    description:
+      "All-in-one platform for coding, collaboration, and interviews.",
+    siteName: "EZ-CodE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EZ-CodE | Code, Collaborate, Interview",
+    description:
+      "30+ languages, pair programming, interview rooms – all in one place.",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
+      <head>
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "EZ-CodE",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "All",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              description:
+                "Run code in 30+ languages, collaborate in real-time, and conduct interviews.",
+              keywords:
+                "online compiler, interviews, collaborative coding, pair programming, interview platform",
+            }),
+          }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         {children}
       </body>
     </html>

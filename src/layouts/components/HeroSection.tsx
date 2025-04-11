@@ -3,7 +3,6 @@ import { Code } from "lucide-react";
 import HeroSecrionAnima from "./animations/HeroSecrionAnima";
 import StaticCode from "./StaticCode";
 
-
 export default function HeroSection() {
   return (
     <>
@@ -14,25 +13,25 @@ export default function HeroSection() {
               <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-800 text-blue-200 mb-4">
                 All-in-One Coding Platform
               </span>
-              <h2 className="text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl mb-6">
+              <h1 className="text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl mb-6">
                 Elevate your coding experience with EZ-CodE
-              </h2>
+              </h1>
               <p className="text-xl text-blue-100 max-w-xl">
-                Access powerful online compilers, collaborate in real-time with
-                peers, and conduct seamless technical interviews all in one
-                integrated platform.
+                EZ-CodE is your go-to platform for online coding, real-time pair
+                programming, and remote technical interviews. Built for
+                developers, teams, and recruiters.
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
                 <a
-                  href="#create-room"
+                  href="#hero-secrion-anima"
                   className="px-6 py-3 rounded-md bg-white text-blue-600 font-medium shadow-md hover:bg-blue-50 transition-colors">
-                  Get Started
+                  Explore features
                 </a>
                 <a
-                  href="#how-it-works"
+                  href="#features"
                   className="px-6 py-3 rounded-md border border-blue-200 text-white font-medium hover:bg-blue-800 transition-colors">
-                  Explore Features
+                  Start your coding
                 </a>
               </div>
             </div>

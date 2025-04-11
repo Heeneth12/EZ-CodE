@@ -118,22 +118,6 @@ export default function StaticCode() {
         </div>
       </div>
 
-      {/* Floating element as per your request */}
-      <div className="absolute -bottom-12 -left-12 bg-blue-900 rounded-lg shadow-lg p-4 transform -rotate-3 hidden md:block">
-        <div className="flex items-center">
-          <div className="text-blue-300 mr-2">
-            {/* Simple code icon */}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-          </div>
-          <span className="text-blue-100 font-mono">
-            EZ-CodE.compile();
-          </span>
-        </div>
-      </div>
-
       {/* Add subtle glow behind the editor */}
       <div className="absolute -z-10 inset-0 bg-gradient-to-br from-blue-700/20 to-indigo-900/30 blur-3xl transform scale-110"></div>
     </div>

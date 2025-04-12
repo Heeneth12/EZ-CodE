@@ -42,31 +42,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Structured Data (JSON-LD) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "EZ-CodE",
-              applicationCategory: "DeveloperApplication",
-              operatingSystem: "All",
-              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-              description:
-                "Run code in 30+ languages, collaborate in real-time, and conduct interviews.",
-              keywords:
-                "online compiler, interviews, collaborative coding, pair programming, interview platform",
-            }),
-          }}
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        {children}
-      </body>
-    </html>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+      {children}
+    </div>
   );
 }

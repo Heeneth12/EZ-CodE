@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 // Optional SEO Metadata (can override in individual pages too)
 export const metadata: Metadata = {
   title: "Online Compiler - EZ-CodE",
-  description: "Run code in multiple languages with real-time output using EZ-CodE.",
+  description:
+    "Run code in multiple languages with real-time output using EZ-CodE.",
 };
 
 export default function RootLayout({
@@ -24,12 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+      {children}
+    </div>
   );
 }

@@ -53,20 +53,28 @@ export default function OnlineCompilerPage() {
         </article>
 
         {/* CTA Section */}
-        <div className="bg-blue-700">
-          <div className="max-w-3xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-white text-center">
-              Ready to Start Coding?
-            </h2>
-            <p className="mt-4 text-lg leading-6 text-blue-100 text-center">
-              Try our online code editor now. No installation or setup required.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <div className="inline-flex rounded-md shadow">
-                <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50">
-                  <Code className="mr-2 h-5 w-5" />
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-10 sm:py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                  <span className="block">Ready to Start Coding?</span>
+                  <span className="block text-blue-200">
+                    Get started with EZ-CodE today.
+                  </span>
+                </h2>
+                <p className="mt-4 text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
+                  Try our online code editor now. No installation or setup
+                  required.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0 lg:justify-end">
+                <a
+                  href="#create-room"
+                  className="inline-flex items-center justify-center px-5 py-3 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 transition-colors shadow">
+                  <Code size={18} className="mr-2" />
                   Launch Editor
-                </button>
+                </a>
               </div>
             </div>
           </div>

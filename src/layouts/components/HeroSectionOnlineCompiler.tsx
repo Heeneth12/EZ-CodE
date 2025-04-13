@@ -24,7 +24,7 @@ export default function HeroSectionOnlineCompiler() {
   return (
     <>
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div>
               <h1 className="text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">
@@ -80,8 +80,8 @@ export default function HeroSectionOnlineCompiler() {
             Learn programming for <span className="text-blue-600">Free</span>
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-xl mx-auto">
-            Quick-read tutorials with code examples that you can run
-            and copy—perfect for self-paced learning.
+            Quick-read tutorials with code examples that you can run and
+            copy—perfect for self-paced learning.
           </p>
 
           {/* First Row of Languages */}

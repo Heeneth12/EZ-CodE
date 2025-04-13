@@ -107,7 +107,8 @@ export default function LanguageSidebar() {
         {languages.map((lang) => (
           <li key={lang.id} className="w-full py-2 relative lang-item">
             <Link
-              href={`/${lang.id}/onlinecompiler`}
+              href={`/online-compiler/${lang.id}`}
+              target="_blank"
               title={`${lang.name} Online Compiler`}
               aria-current={activeLanguage === lang.id ? "page" : undefined}
               className={`flex flex-col items-center justify-center py-3 relative transition-all duration-200 ${

@@ -124,7 +124,7 @@ export default function HeroSecrionAnima() {
             </div>
 
             <div
-              onClick={() => handleViewChange("Coding")}
+              onClick={() => handleViewChange("Collaborative")}
               className="relative border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md hover:border-blue-100 hover:bg-blue-50 transition-all">
               <input
                 type="radio"
@@ -198,7 +198,7 @@ export default function HeroSecrionAnima() {
         </div>
 
         <div className="mt-12 lg:mt-0 lg:col-span-7">
-          {currentView === "Interview" ? (
+          {currentView === "Interview" && (
             <div className="w-full p-4 md:p-8 relative mt-12 lg:mt-0">
               {/* Main code editor - candidate view */}
               <div
@@ -422,7 +422,8 @@ export default function HeroSecrionAnima() {
                 </div>
               </div>
             </div>
-          ) : (
+          )}
+          {currentView === "Collaborative" && (
             <div className="w-full  p-4 md:p-8 relative mt-12 lg:mt-0">
               {/* Main code terminal with enhanced styles */}
               <div

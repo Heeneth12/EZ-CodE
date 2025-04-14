@@ -4,8 +4,18 @@ import Header from "@/layouts/components/Header";
 import HeroSection from "@/layouts/components/interview/HeroSection";
 import FeatureSections from "@/layouts/components/interview/FeatureSections";
 import CtaSection from "@/layouts/components/interview/CtaSection";
+import { CtaSectionModel } from "@/layouts/models/CtaSectionModel";
 
 export default function TechInterviewPage() {
+  const ctaSectionData: CtaSectionModel = {
+    title: "Ready to Transform Your Technical Hiring?",
+    description: "Join thousands of companies using TechInterview to streamline their technical interview process and find the best talent.",
+    buttonText_1: "Sign Up For Free",
+    buttonText_2: "Request Demo",
+    buttonLink_1: "",
+    buttonLink_2: ""
+  };
+
   return (
     <>
       <Header />
@@ -25,7 +35,7 @@ export default function TechInterviewPage() {
         </article>
 
         {/* CTA Section */}
-        <CtaSection />
+        <CtaSection {...ctaSectionData} />
       </main>
       <Footer />
     </>

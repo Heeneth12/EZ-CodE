@@ -33,7 +33,7 @@ export default function Auth() {
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
-          <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          <h1 className="text-4xl font-bold text-gray-700 mb-8 text-center">
             Log in or sign up
           </h1>
 

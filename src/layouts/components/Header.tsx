@@ -165,12 +165,12 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <a
-            href="/login"
+            href="auth/login"
             className="rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 transition-colors duration-300 border border-white">
             Log in
           </a>
           <a
-            href="/register"
+            href="auth/login"
             className="rounded-md bg-white px-4 py-2 text-sm font-medium text-blue-600 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 transition-colors duration-300">
             Sign up
           </a>
